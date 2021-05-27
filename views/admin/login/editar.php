@@ -35,7 +35,7 @@ include_once 'models/producto.php';
                 <input type="text" class="input" id="categoria"value="<?php echo $productos[0]->categoria;?>">
                 <br>
                 <br>  
-                <!-- implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
+                <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
                 <button  type='submit' name='registro' onclick='' class='btn_aceptar' >Aceptar</button>
 
             </div>
