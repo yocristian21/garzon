@@ -8,7 +8,7 @@ include_once 'models/producto.php';
 ?>
 
  <div class='form-group' align='center'>
-
+<!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
                 <h2>Editar Producto</h2>
                 <br>
                 <a>Nombre</a>
@@ -36,6 +36,6 @@ include_once 'models/producto.php';
                 <br>
                 <br>  
                 <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
-                <button  type='submit' name='registro' onclick='' class='btn_aceptar' >Aceptar</button>
-
-            </div>
+                <button  type='submit' name='registro' onclick= 'fun_modif_producto()' class='btn_aceptar' >Aceptar</button>
+                                                       
+        </div>

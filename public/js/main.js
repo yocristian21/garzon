@@ -2,11 +2,6 @@ function fun_agre_producto() {
     div_continuar = document.getElementById('agre_producto').style.display = 'flex';
 }
 
-function fun_modif_producto(id) {
-    div_continuar = document.getElementById('modif_producto').style.display = 'flex';
-    alert(id);
-}
-
 function cancelar_agre() {
     div_continuar = document.getElementById('agre_producto').style.display = 'none';
 }
@@ -40,7 +35,7 @@ function fun_buscar_producto(id) {
                             });
     }
 
-    function fun_modif_producto(id) {
+    function fun_detalle_producto(id) {
         div_continuar = document.getElementById('modif_producto').style.display = 'flex';
         $.ajax({
                                    type: "POST",
@@ -48,7 +43,28 @@ function fun_buscar_producto(id) {
                                    data: "b="+id,
                                    dataType: "html",
                                    beforeSend: function(){
-                                              //imagen de carga
+                                              //imagen de carga modificacion
+                                           $("#modificar_prod").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
+                                   },
+                                   error: function(){
+                                           alert("error petición ajax");
+                                     },
+                                  success: function(data){                                                    
+                                        $("#modificar_prod").empty();
+                                        $("#modificar_prod").append(data);      
+                                    }
+                            });
+    }
+
+    function fun_modif_producto() {
+        div_continuar = document.getElementById('modif_producto').style.display = 'flex';
+        $.ajax({
+                                   type: "POST",
+                                   url: "../admin/actualizar_producto/"+id,
+                                   data: "b="+id,
+                                   dataType: "html",
+                                   beforeSend: function(){
+                                              //imagen de carga modificacion
                                            $("#modificar_prod").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
                                    },
                                    error: function(){

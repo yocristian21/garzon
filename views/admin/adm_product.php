@@ -48,7 +48,7 @@
                         <td>$producto->stock</td>
                         <td>$producto->categoria</td>
                         
-                        <td><input type='button' onclick='fun_modif_producto($producto->id_producto)' value='Editar'/></td>
+                        <td><input type='button' onclick='fun_detalle_producto($producto->id_producto)' value='Editar'/></td>
                        
                        
                        
@@ -69,7 +69,7 @@
 
            
                     
-            <div  class='form-group' align='center'>
+            <div  class='form-group' align='center'> -->
                 <h2>Agregar Producto</h2>
                 <br>
                 <a>Nombre</a>
@@ -95,12 +95,11 @@
                 <a>Categoria</a>
                 <input type="text" class="input" id="categoria">
                 <br>
-                <br>  
-                <button  type='submit' name='registro' onclick='' class='btn_aceptar' >Aceptar</button>
+                <br>
 
             </div>
         </div>
-    </div>
+    </div> 
 
     <div id='modif_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >

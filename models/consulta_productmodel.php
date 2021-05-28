@@ -66,7 +66,44 @@ class Consulta_ProductModel extends Model{
             
         } 
     }
+                        //  3
+    public function update(){
+        // $query = $this->db->connect()->query("SELECT * FROM producto WHERE id_producto='$id_param'");
+
+        $query = $this->db->connect()->prepare("UPDATE producto SET id_producto = :id_producto, nombre = :nombre, descripcion = :descripcion, precio = :precio, foto = :foto, stock = :stock, categoria = :categoria  WHERE id_producto");
+        
+                 $query->execute([
+                    'id_producto'   => $this->id_producto,
+                    'nombre'        => $this->nombre,
+                    'descripcion'   => $this->descripcion,
+                    'precio'        => $this->precio,
+                    'foto'          => $this->foto,
+                    'stock'         => $this->stock,
+                    'categoria'     => $this->categoria
+                 ]);
+    
+    }
+//                       vector que se va a cargar con las modificaciones
+    // public function update($item){
+    //     $query = $this->db->connect()->prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, precio = :precio, foto = :foto, stock = :stock, categoria = :categoria  WHERE id_producto = :id_producto");
+    //     try{
+    //         $query->execute([
+    //             'id_producto' => $item['id_producto'],
+    //             'nombre'=> $item['nombre'],
+    //             'descripcion'=> $item['descripcion'],
+    //             'precio'=> $item['precio'],
+    //             'foto'=> $item['foto'],
+    //             'stock'=> $item['foto'],
+    //             'categoria'=> $item['categoria']
+    //         ]);
+    //         return true;
+    //     }catch(PDOException $e){
+    //         return false;
+    //     }
+    // }
+
+
+
 
 }
-
 ?>

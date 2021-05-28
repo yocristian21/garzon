@@ -39,8 +39,12 @@ class Admin extends Controller{
         $this->view->producto = $producto;
         $this->view->render('admin/login/editar');
     }
-
-
+ //                                3
+    function actualizar_producto(){
+        $this->loadModel('consulta_product');//ver!!!!
+        $this->model->update();
+        $this->view->render('admin/login/editar');
+    }
 }
 
 ?>
