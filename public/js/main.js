@@ -56,24 +56,44 @@ function fun_buscar_producto(id) {
                             });
     }
 
-    function fun_modif_producto() {
-        div_continuar = document.getElementById('modif_producto').style.display = 'flex';
+    function fun_modif_producto(id) {
+
+        var producto = new Array();
+        producto[0] = id;
+        producto[1] = document.getElementById("nombre_edit").value;
+        producto[2] = document.getElementById("descripcion_edit").value;
+        producto[3] = document.getElementById("precio_edit").value;
+        producto[4] = document.getElementById("foto_edit").value;
+        producto[5] = document.getElementById("stock_edit").value;
+        producto[6] = document.getElementById("categoria_edit").value;
+
+
+        div_continuar = document.getElementById('modif_producto').style.display = 'none';
+
+        
+
         $.ajax({
                                    type: "POST",
-                                   url: "../admin/actualizar_producto/"+id,
-                                   data: "b="+id,
+                                   url: "../admin/actualizar_producto/", 
+                                   data: { ProductoArray: producto }, //enviar un array con todos los datos
                                    dataType: "html",
                                    beforeSend: function(){
                                               //imagen de carga modificacion
-                                           $("#modificar_prod").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
+                                              $("#div_aux").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
                                    },
                                    error: function(){
                                            alert("error petición ajax");
                                      },
                                   success: function(data){                                                    
-                                        $("#modificar_prod").empty();
-                                        $("#modificar_prod").append(data);      
+                                    $("#div_aux").empty();
+                                    $("#div_aux").append(data);
                                     }
                             });
+        
+        
+    
+        
     }
+
+
 
