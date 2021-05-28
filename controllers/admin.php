@@ -39,11 +39,20 @@ class Admin extends Controller{
         $this->view->producto = $producto;
         $this->view->render('admin/login/editar');
     }
- //                                3
+
     function actualizar_producto(){
-        $this->loadModel('consulta_product');//ver!!!!
-        $this->model->update();
-        $this->view->render('admin/login/editar');
+        // $data = [];
+        $Producto = $_POST['ProductoArray'];
+        $this->loadModel('consulta_product');
+        $this->model->update(['id_producto' => $Producto[0],
+                              'nombre'      => $Producto[1],
+                              'descripcion' => $Producto[2],
+                              'precio'      => $Producto[3], 
+                              'foto'        => $Producto[4], 
+                              'stock'       => $Producto[5], 
+                              'categoria'   => $Producto[6]
+        ]);
+        //renderizar admin/login/adm_product
     }
 }
 

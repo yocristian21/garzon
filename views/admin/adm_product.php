@@ -73,27 +73,27 @@
                 <h2>Agregar Producto</h2>
                 <br>
                 <a>Nombre</a>
-                <input type="text" class="input" id="nombre">
+                <input type="text" class="input" id="nombre_agre">
                 <br>
                 <br>
                 <a>Descripcion</a>
-                <input type="text" class="input" id="descripcion">
+                <input type="text" class="input" id="descripcion_agre">
                 <br> 
                 <br>
                 <a>Precio</a>
-                <input type="text" class="input" id="precio">
+                <input type="text" class="input" id="precio_agre">
                 <br> 
                 <br>
                 <a>Foto</a>
-                <input type="text" class="input" id="foto">
+                <input type="text" class="input" id="foto_agre">
                 <br>
                 <br> 
                 <a>Stock</a>
-                <input type="text" class="input" id="stock">
+                <input type="text" class="input" id="stock_agre">
                 <br>
                 <br> 
                 <a>Categoria</a>
-                <input type="text" class="input" id="categoria">
+                <input type="text" class="input" id="categoria_agre">
                 <br>
                 <br>
 
@@ -108,8 +108,43 @@
 
             <div id='modificar_prod' class='form-group' align='center'>
                
+            <div class='form-group' align='center'>
+<!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
+                <h2>Editar Producto</h2>
+                <br>
+                <a>Nombre</a>
+                <input type="text" class="input" id="nombre_edit" value="Juan">
+                <br>
+                <br>
+                <a>Descripcion</a>
+                <input type="text" class="input" id="descripcion_edit" value="">
+                <br> 
+                <br>
+                <a>Precio</a>          
+                <input type="text" class="input" id="precio_edit" value="">
+                <br> 
+                <br>
+                <a>Foto</a>
+                <input type="text" class="input" id="foto_edit" value="">
+                <br>
+                <br> 
+                <a>Stock</a>
+                <input type="text" class="input" id="stock_edit" value="">
+                <br>
+                <br> 
+                <a>Categoria</a>
+                <input type="text" class="input" id="categoria_edit" value="">
+                <br>
+                <br>  
+                <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
+                <button  type='submit' name='registro' onclick= 'fun_modif_producto()' class='btn_aceptar' >Aceptar</button>                                    
+        </div>
+
+
             </div>
         </div>
+    </div>
+    <div id='div_aux'>
     </div>
     <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
