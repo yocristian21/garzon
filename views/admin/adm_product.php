@@ -49,10 +49,7 @@
                         <td>$producto->categoria</td>
                         
                         <td><input type='button' onclick='fun_detalle_producto($producto->id_producto)' value='Editar'/></td>
-                       
-                       
-                       
-                        <td><input type='button' value='Eliminar'/></td>
+                        <td><input type='button' onclick='fun_eliminar_producto($producto->id_producto)' value='Eliminar'/></td>
                         </tr>";
                 } 
                 
@@ -101,50 +98,30 @@
         </div>
     </div> 
 
+    
+     
     <div id='modif_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >
             <button  type='submit' onclick='cancelar_modif()' class='btn_x' >X</button>
            
 
             <div id='modificar_prod' class='form-group' align='center'>
-               
-            <div class='form-group' align='center'>
-<!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
-                <h2>Editar Producto</h2>
-                <br>
-                <a>Nombre</a>
-                <input type="text" class="input" id="nombre_edit" value="Juan">
-                <br>
-                <br>
-                <a>Descripcion</a>
-                <input type="text" class="input" id="descripcion_edit" value="">
-                <br> 
-                <br>
-                <a>Precio</a>          
-                <input type="text" class="input" id="precio_edit" value="">
-                <br> 
-                <br>
-                <a>Foto</a>
-                <input type="text" class="input" id="foto_edit" value="">
-                <br>
-                <br> 
-                <a>Stock</a>
-                <input type="text" class="input" id="stock_edit" value="">
-                <br>
-                <br> 
-                <a>Categoria</a>
-                <input type="text" class="input" id="categoria_edit" value="">
-                <br>
-                <br>  
-                <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
-                <button  type='submit' name='registro' onclick= 'fun_modif_producto()' class='btn_aceptar' >Aceptar</button>                                    
-        </div>
-
-
-            </div>
+            
         </div>
     </div>
-    <div id='div_aux'>
+
+
+    <div id='elim_producto' class='div_emergente' >
+        <div id='datos' class='ventana_emergente' >
+            <button  type='submit' onclick='cancelar_modif()' class='btn_x' >X</button>
+           
+            <div id='eliminar_prod'  class='form-group' align='center'>
+            
+            
+        </div>
+    </div>
+
+    
     </div>
     <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

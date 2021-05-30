@@ -12,7 +12,7 @@ include_once 'models/producto.php';
 <!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
                 <h2>Editar Producto</h2>
                 <br>
-                <a>Nombre</a>
+                <a>Nombree</a>
                 <input type="text" class="input" id="nombre_edit" value="<?php echo $productos[0]->nombre;?>">
                 <br>
                 <br>

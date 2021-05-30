@@ -74,13 +74,13 @@ class Consulta_ProductModel extends Model{
         $query = $this->db->connect()-> prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, precio = :precio, foto = :foto , stock = :stock, categoria = :categoria WHERE id_producto = :id_producto");
         try{
             $query->execute([
-                'id_producto'=> $item['id_producto'],
-                'nombre'=> $item['nombre'],
+                'id_producto'=> $item['id_producto'], //'id_producto' 
+                'nombre'     => $item['nombre'], //seteamos 'nombre' q es la columna d la BD, con lo que sacamos del vector $item['nombre']
                 'descripcion'=> $item['descripcion'],
-                'precio'=> $item['precio'],
-                'foto'=> $item['foto'],
-                'stock'=> $item['stock'],
-                'categoria'=> $item['categoria']
+                'precio'     => $item['precio'],
+                'foto'       => $item['foto'],
+                'stock'      => $item['stock'],
+                'categoria'  => $item['categoria']
             ]);
             return true;
         }catch(PDOException $e){
@@ -90,6 +90,24 @@ class Consulta_ProductModel extends Model{
         }   
 
     }
+
+    public function delete_producto($id_param){
+      //  $items = $this->model->get_producto($id_param);
+      echo "<p>Ejecutaste el método delete_producto</p>";  
+      echo $id_param;
+        
+        try{
+
+            $query = $this->db->connect()->query("DELETE FROM producto WHERE id_producto='$id_param'");
+           // $query = $this->db->connect()->query("SELECT * FROM producto WHERE id_producto='$id_param'");
+            //  return $items;
+         return true;
+        }catch(PDOException $e){
+            echo $e;
+            return false;
+            
+        } 
+    }  
             
 
 }
