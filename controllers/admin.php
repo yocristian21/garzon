@@ -59,7 +59,15 @@ class Admin extends Controller{
         $this->loadModel('consulta_product');//ver!!!!
         $this->model->delete_producto($param[0]);
        // $this->view->producto = $producto;
-      //  $this->view->render('admin/login/eliminar');
+   //   $this->view->render('admin/login/eliminar');
+    }
+
+
+    function pregunta($param){
+        $this->loadModel('consulta_product');
+        $producto = $this->model->get_producto($param[0]);
+        $this->view->producto = $producto;
+        $this->view->render('admin/login/eliminar');
     }
 
 

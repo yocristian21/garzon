@@ -12,11 +12,12 @@ include_once 'models/producto.php';
 <!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
                 <h2>¿Desea eliminar el producto?</h2>
                 <br>
-                <a>confirmar!?</a>
+                <a>id_producto</a>
+                <input type="text" class="input" id="nombre_edit" value="<?php echo $productos[0]->id_productos[0];?>">
                
                 <br>
                 <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
-                <button  type='submit' name='registro' onclick= 'fun_eliminar_producto(<?php echo $productos[0]->id_producto; ?>)' class='btn_aceptar' >Aceptar</button>
+                <button  type='submit' name='registro' onclick= 'fun_eliminar_producto(<?php echo $productos[0]->id_producto; ?>)' class='btn_aceptar' >Aceptar Eliminacion</button>
 
         </div>
 

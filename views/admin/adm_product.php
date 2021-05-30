@@ -49,7 +49,7 @@
                         <td>$producto->categoria</td>
                         
                         <td><input type='button' onclick='fun_detalle_producto($producto->id_producto)' value='Editar'/></td>
-                        <td><input type='button' onclick='fun_eliminar_producto($producto->id_producto)' value='Eliminar'/></td>
+                        <td><input type='button' onclick='fun_eliminar_producto_emer($producto->id_producto)' value='Eliminar'/></td>
                         </tr>";
                 } 
                 
@@ -98,7 +98,7 @@
         </div>
     </div> 
 
-    
+   
      
     <div id='modif_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >
@@ -109,22 +109,27 @@
             
         </div>
     </div>
-
+    </div>
 
     <div id='elim_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >
             <button  type='submit' onclick='cancelar_modif()' class='btn_x' >X</button>
            
-            <div id='eliminar_prod'  class='form-group' align='center'>
-            
+
+            <div id='eliminar_prod' class='form-group' align='center'>
             
         </div>
+      </div>
     </div>
 
+
+   
+
     
-    </div>
+
     <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 </body>
+
 </html>
