@@ -6,19 +6,15 @@ include_once 'models/producto.php';
     $productos = $this->producto;// hace que productos apunte al objeto producto, osea, ahora productos es producto
     
     //echo $this->mensaje;
-?>
-
- <div class='form-group' align='center'>
-<!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
-                <h2>¿Desea eliminar el producto?</h2>
-                <br>
-                <a>id_producto</a>
-                <input type="text" class="input" id="nombre_edit" value="<?php echo $productos[0]->id_productos[0];?>">
-               
+?>    
+    
+        <div class='form-group' align='center'>
+        <!-- guardar en vector prodocto->nombre para despues enviarlo a la BD -->
+                <h2>¿Desea eliminar el producto <?php echo $productos[0]->nombre;?>?</h2>
                 <br>
                 <!--ver: implementar metodo despues de onclick, que guarde en un vector la consulta de la BD -->
-                <button  type='submit' name='registro' onclick= 'fun_eliminar_producto(<?php echo $productos[0]->id_producto; ?>)' class='btn_aceptar' >Aceptar Eliminacion</button>
-
+                <button  type='submit' name='registro' onclick= 'fun_eliminar_producto(<?php echo $productos[0]->id_producto; ?>)' class='btn_aceptar' >Aceptar</button>
+  
         </div>
 
         <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>

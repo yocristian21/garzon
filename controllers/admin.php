@@ -54,6 +54,14 @@ class Admin extends Controller{
         ]);
         //renderizar admin/login/adm_product
     }
+
+    function confirmacion($param){
+        $this->loadModel('consulta_product');
+        $producto = $this->model->get_producto($param[0]);
+        $this->view->producto = $producto;
+        $this->view->render('admin/login/eliminar');
+    }
+
     function eliminar_producto($param){
         echo "<p>Ejecutaste el método eliminar_producto</p>";
         $this->loadModel('consulta_product');//ver!!!!
@@ -61,15 +69,6 @@ class Admin extends Controller{
        // $this->view->producto = $producto;
    //   $this->view->render('admin/login/eliminar');
     }
-
-
-    function pregunta($param){
-        $this->loadModel('consulta_product');
-        $producto = $this->model->get_producto($param[0]);
-        $this->view->producto = $producto;
-        $this->view->render('admin/login/eliminar');
-    }
-
 
 }
 

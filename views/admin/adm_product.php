@@ -49,7 +49,7 @@
                         <td>$producto->categoria</td>
                         
                         <td><input type='button' onclick='fun_detalle_producto($producto->id_producto)' value='Editar'/></td>
-                        <td><input type='button' onclick='fun_eliminar_producto_emer($producto->id_producto)' value='Eliminar'/></td>
+                        <td><input type='button' onclick='fun_confirmacion($producto->id_producto)' value='Eliminar'/></td>
                         </tr>";
                 } 
                 
@@ -113,7 +113,7 @@
 
     <div id='elim_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >
-            <button  type='submit' onclick='cancelar_modif()' class='btn_x' >X</button>
+            <button  type='submit' onclick='cancelar_elim()' class='btn_x' >X</button>
            
 
             <div id='eliminar_prod' class='form-group' align='center'>

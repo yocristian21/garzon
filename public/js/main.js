@@ -14,6 +14,10 @@ function cancelar_agre() {
 function cancelar_modif() {
     div_continuar = document.getElementById('modif_producto').style.display = 'none';
 }
+function cancelar_elim() {
+    div_continuar = document.getElementById('elim_producto').style.display = 'none';
+}
+
 
 function cancelar_producto() {
     div_continuar = document.getElementById('producto').style.display = 'none';
@@ -100,11 +104,11 @@ function fun_buscar_producto(id) {
         
     }
 
-    function fun_eliminar_producto_emer(id) {
+    function fun_confirmacion(id) {
         div_continuar = document.getElementById('elim_producto').style.display = 'flex';
         $.ajax({
                                    type: "POST",
-                                   url: "../admin/pregunta/"+id,
+                                   url: "../admin/confirmacion/"+id,
                                    data: "b="+id,
                                    dataType: "html",
                                    beforeSend: function(){
