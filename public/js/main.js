@@ -100,28 +100,6 @@ function fun_buscar_producto(id) {
         
     }
 
-    function fun_eliminar_producto(id) {
-        div_continuar = document.getElementById('elim_producto').style.display = 'flex';
-        $.ajax({
-                                   type: "POST",
-                                   url: "../admin/eliminar_producto/"+id,
-                                   data: "b="+id,
-                                   dataType: "html",
-                                   beforeSend: function(){
-                                              //imagen de carga modificacion
-                                           $("#eliminar_prod").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
-                                   },
-                                   error: function(){
-                                           alert("error petición ajax");
-                                     },
-                                  success: function(data){                                                    
-                                        $("#eliminar_prod").empty();
-                                        $("#eliminar_prod").append(data);      
-                                    }
-                            });
-    }
-
-
     function fun_eliminar_producto_emer(id) {
         div_continuar = document.getElementById('elim_producto').style.display = 'flex';
         $.ajax({
@@ -142,3 +120,27 @@ function fun_buscar_producto(id) {
                                     }
                             });
     }
+     
+    function fun_eliminar_producto(id) {
+        div_continuar = document.getElementById('elim_producto').style.display = 'none';
+        $.ajax({
+                                   type: "POST",
+                                   url: "../admin/eliminar_producto/"+id,
+                                   data: "b="+id,
+                                   dataType: "html",
+                                   beforeSend: function(){
+                                              //imagen de carga modificacion
+                                           $("#div_aux2").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
+                                   },
+                                   error: function(){
+                                           alert("error petición ajax");
+                                     },
+                                  success: function(data){                                                    
+                                        $("#div_aux2").empty();
+                                        $("#div_aux2").append(data);      
+                                    }
+                            });
+    }
+
+
+    
