@@ -15,7 +15,7 @@
     <a href="<?php echo constant('URL'); ?>admin"><input type="button" value="Volver"/></a>
     <br>
     <br>
-    <button onclick="fun_agre_producto()">Agregar Producto</button>
+    <button onclick="fun_emergente_agre()">Agregar Producto</button>
     <br>
     <br>
     <div>
@@ -63,11 +63,13 @@
     <div id='agre_producto' class='div_emergente' >
         <div id='datos' class='ventana_emergente' >
             <button  type='submit' onclick='cancelar_agre()' class='btn_x' >X</button>
-
            
-                    
-            <div  class='form-group' align='center'> -->
+                  
+            <div  class='form-group' align='center'>
                 <h2>Agregar Producto</h2>
+                <br>
+                <a>Id</a>
+                <input type="text" class="input" id="id_agre">
                 <br>
                 <a>Nombre</a>
                 <input type="text" class="input" id="nombre_agre">
@@ -93,6 +95,7 @@
                 <input type="text" class="input" id="categoria_agre">
                 <br>
                 <br>
+                <button  type='submit' name='registro' onclick= 'fun_agreg_producto()' class='btn_aceptar' >Aceptar</button>
 
             </div>
         </div>

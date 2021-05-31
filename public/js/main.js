@@ -1,4 +1,4 @@
-function fun_agre_producto() {
+function fun_emergente_agre() {
     div_continuar = document.getElementById('agre_producto').style.display = 'flex';
 //IMPLEMENTAR TODO
 
@@ -103,6 +103,45 @@ function fun_buscar_producto(id) {
     
         
     }
+    function fun_agreg_producto(){
+         
+        var producto = new Array();
+        producto[0] = document.getElementById("id_agre").value;
+        producto[1] = document.getElementById("nombre_agre").value;
+        producto[2] = document.getElementById("descripcion_agre").value;
+        producto[3] = document.getElementById("precio_agre").value;
+        producto[4] = document.getElementById("foto_agre").value;
+        producto[5] = document.getElementById("stock_agre").value;
+        producto[6] = document.getElementById("categoria_agre").value;
+
+
+        div_continuar = document.getElementById('agre_producto').style.display = 'none';
+
+        $.ajax({
+                                   type: "POST",
+                                   url: "../admin/agregar_producto/", 
+                                   data: { ProductoArray: producto }, //enviar un array con todos los datos
+                                   dataType: "html",
+                                   beforeSend: function(){
+                                              //imagen de carga modificacion
+                                              $("#div_aux2").html("<p align='center'><img src='../../public/img/ajax-loader.gif' /></p>");
+                                   },
+                                   error: function(){
+                                           alert("error petición ajax");
+                                     },
+                                  success: function(data){                                                    
+                                    $("#div_aux2").empty();
+                                    $("#div_aux2").append(data);
+                                    }
+                            });
+        
+        
+    
+        
+    }
+
+
+
 
     function fun_confirmacion(id) {
         div_continuar = document.getElementById('elim_producto').style.display = 'flex';

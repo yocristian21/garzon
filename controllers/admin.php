@@ -41,7 +41,6 @@ class Admin extends Controller{
     }
 
     function actualizar_producto(){
-        // $data = [];
         $Producto = $_POST['ProductoArray'];//lo que recibe del .ajax el array con los datos del producto
         $this->loadModel('consulta_product');
         $this->model->update(['id_producto' => $Producto[0],//
@@ -52,7 +51,6 @@ class Admin extends Controller{
                               'stock'       => $Producto[5], 
                               'categoria'   => $Producto[6]
         ]);
-        //renderizar admin/login/adm_product
     }
 
     function confirmacion($param){
@@ -64,11 +62,23 @@ class Admin extends Controller{
 
     function eliminar_producto($param){
         echo "<p>Ejecutaste el método eliminar_producto</p>";
-        $this->loadModel('consulta_product');//ver!!!!
+        $this->loadModel('consulta_product');
         $this->model->delete_producto($param[0]);
-       // $this->view->producto = $producto;
-   //   $this->view->render('admin/login/eliminar');
     }
+
+    function agregar_producto(){
+        $Producto = $_POST['ProductoArray'];//lo que recibe del .ajax el array con los datos del producto
+        $this->loadModel('consulta_product');
+        $this->model->add(['id_producto' => $Producto[0],//
+                              'nombre'      => $Producto[1],
+                              'descripcion' => $Producto[2],
+                              'precio'      => $Producto[3], 
+                              'foto'        => $Producto[4], 
+                              'stock'       => $Producto[5], 
+                              'categoria'   => $Producto[6]
+        ]);
+    }
+
 
 }
 

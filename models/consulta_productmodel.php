@@ -6,7 +6,6 @@ class Consulta_ProductModel extends Model{
 
     public function __construct(){
         parent::__construct();
-        //echo "<p>Nuevo controlador consulta_productmodel.php</p>";
     }
 
     public function get_productos($cat_param){
@@ -65,12 +64,9 @@ class Consulta_ProductModel extends Model{
             return [];
             
         } 
-    }  // 
-    //  $items un arreglo de objetos producto
+    }  
+
     public function update($item){
-                                           //precio = :precio, foto = :foto, stock = :stock, categoria = :categoria  
-        // foreach($Producto as $key=>$producto){
-        // foreach($Producto as $key=>$producto){
         $query = $this->db->connect()-> prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, precio = :precio, foto = :foto , stock = :stock, categoria = :categoria WHERE id_producto = :id_producto");
         try{
             $query->execute([
@@ -90,22 +86,39 @@ class Consulta_ProductModel extends Model{
         }   
 
     }
+    
+    public function add($item){
+    $query = $this->db->connect()-> prepare("INSERT INTO producto (id_producto, nombre, descripcion, precio, foto, stock, categoria) VALUES (:id_producto, :nombre, :descripcion, :precio, :foto , :stock, :categoria)");
+    try{
+    $query->execute([
+    'id_producto'=> $item['id_producto'], //'id_producto' 
+    'nombre'     => $item['nombre'], //seteamos 'nombre' q es la columna d la BD, con lo que sacamos del vector $item['nombre']
+    'descripcion'=> $item['descripcion'],
+    'precio'     => $item['precio'],
+    'foto'       => $item['foto'],
+    'stock'      => $item['stock'],
+    'categoria'  => $item['categoria']
+    ]);
+    return true;
+    }catch(PDOException $e){
+    echo $e;
+    return false;
+
+}   
+
+}
+
 
     public function delete_producto($id_param){
-      //  $items = $this->model->get_producto($id_param);
       echo "<p>Ejecutaste el método delete_producto</p>";
       echo $id_param;
         
         try{
-
             $query = $this->db->connect()->query("DELETE FROM producto WHERE id_producto='$id_param'");
-           // $query = $this->db->connect()->query("SELECT * FROM producto WHERE id_producto='$id_param'");
-            //  return $items;
-         return true;
+            return true;
         }catch(PDOException $e){
             echo $e;
             return false;
-            
         } 
     }  
             
